@@ -1,0 +1,72 @@
+@media print {
+
+    @page { size: auto;  margin: 0mm; }
+
+    .menu,.breadcrumb,.level,.footer,.navbar{
+        display: none;
+    }
+    
+    
+    }
+
+    .invoice-middle{
+        margin-top: 22px;
+        text-align: center;
+    }
+
+    .subject-title{
+        font-size: 23px;
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+        font-weight: bold;
+        padding: 8px 0px;
+    }
+
+    .subject-value{
+        border-bottom: 2px solid;
+        text-transform: uppercase;
+        padding-top: 22px;
+        padding-bottom: 70px;
+    }
+    
+    .customer-info{
+        text-align: right;
+    }
+
+    .table-area table{
+        margin: 11px auto;
+        width: 90%;
+    }
+    .table-area table th{
+        text-align: center;
+        border:1px solid;
+        font-size:20px;
+    }
+
+.table-area table td{
+    border-bottom:1px solid;
+    border-left:1px solid;
+    border-right:1px solid;
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    height: 30px;
+}
+
+.total-td{
+    background-color: #b4b4b4;
+    text-align: right;
+    padding-right: 17px;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    text-transform: uppercase;
+    -webkit-print-color-adjust: exact; 
+}
+
+.invoice-footer{
+    text-align: center;
+    margin-top: 100px;
+    line-height: 85px;
+    font-weight: bold;
+}
