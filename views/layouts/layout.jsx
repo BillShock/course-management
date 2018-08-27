@@ -15,7 +15,7 @@ class MainLayout extends React.Component{
             {/* START DIV LOGO*/}
             <div id="containerMyLogo">
                 <div id="myLogo">
-                    <h1>MAXWELL</h1>
+                    <h1>Course Management</h1>
                 </div>
             </div>
             {/* END DIV LOGO*/}
