@@ -13,3 +13,7 @@ $ npm install
 $ npm run build
 $ node server.js
 ```
+Create a MariaDB docker container.
+```sh
+$ sudo docker-compose up
+```
