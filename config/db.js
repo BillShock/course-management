@@ -1,7 +1,7 @@
 
 const Sequelize = require('sequelize');
 
-  const sequelize = new Sequelize('fatturazione', 'root', '', {
+  const sequelize = new Sequelize('course_management', 'root', '', {
     host: '127.0.0.1',
     dialect: 'mysql',
     port: 3308,
