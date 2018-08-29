@@ -1,0 +1,103 @@
+-- MySQL dump 10.16  Distrib 10.1.26-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: 127.0.0.1    Database: course_management
+-- ------------------------------------------------------
+-- Server version	10.1.35-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'Via 1','123','1234','Roma','0123456789','123456789','myemail@email.email',''),(2,'Via 2','246','2468','Napoli','024682468','246824682','myemail@email.new',NULL);
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `corso`
+--
+
+LOCK TABLES `corso` WRITE;
+/*!40000 ALTER TABLE `corso` DISABLE KEYS */;
+INSERT INTO `corso` VALUES (1,'1','OSS',1000,'0000-00-00','0000-00-00','','0000-00-00','0000-00-00','1',9,13,'0000-00-00',''),(2,'2','OSA',400,'0000-00-00','0000-00-00','','0000-00-00','0000-00-00','2',14,18,'0000-00-00',NULL),(3,'3','BLSD',50,'0000-00-00','0000-00-00',NULL,'0000-00-00','0000-00-00',NULL,NULL,NULL,'0000-00-00',NULL),(4,'4','OSS',800,'0000-00-00','0000-00-00',NULL,'0000-00-00','0000-00-00',NULL,NULL,NULL,'0000-00-00',NULL);
+/*!40000 ALTER TABLE `corso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `dvr_strumentazione`
+--
+
+LOCK TABLES `dvr_strumentazione` WRITE;
+/*!40000 ALTER TABLE `dvr_strumentazione` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dvr_strumentazione` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `fattura`
+--
+
+LOCK TABLES `fattura` WRITE;
+/*!40000 ALTER TABLE `fattura` DISABLE KEYS */;
+INSERT INTO `fattura` VALUES (1,'2017','2017-01-11','Corso OSS',1000.000,100.000,0.000,0.000,2.000,1200.000,1),(2,'2017','2017-02-22','Corso OSA',700.000,100.000,0.000,0.000,2.000,800.000,2);
+/*!40000 ALTER TABLE `fattura` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `iscrizione`
+--
+
+LOCK TABLES `iscrizione` WRITE;
+/*!40000 ALTER TABLE `iscrizione` DISABLE KEYS */;
+INSERT INTO `iscrizione` VALUES (1,1,1,1000,''),(2,1,2,800,NULL),(3,2,1,1000,NULL),(4,2,2,700,NULL);
+/*!40000 ALTER TABLE `iscrizione` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `privato`
+--
+
+LOCK TABLES `privato` WRITE;
+/*!40000 ALTER TABLE `privato` DISABLE KEYS */;
+INSERT INTO `privato` VALUES (1,'Mario','Rossi','1968-11-10','123456789'),(2,'Pinco','Pallino','1989-04-20','246824682');
+/*!40000 ALTER TABLE `privato` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `rata`
+--
+
+LOCK TABLES `rata` WRITE;
+/*!40000 ALTER TABLE `rata` DISABLE KEYS */;
+INSERT INTO `rata` VALUES (1,1,100.00,'2017-02-14','Contanti','0001'),(1,2,200.00,'2017-03-17','Contanti','0002');
+/*!40000 ALTER TABLE `rata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `societa`
+--
+
+LOCK TABLES `societa` WRITE;
+/*!40000 ALTER TABLE `societa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `societa` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-08-29 17:57:47

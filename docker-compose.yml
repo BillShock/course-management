@@ -8,3 +8,5 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_DATABASE=fatturazione
+    volumes:
+    - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
