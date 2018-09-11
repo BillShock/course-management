@@ -10,12 +10,12 @@ class ModalRate extends React.Component{
         this.updateTotale = this.updateTotale.bind(this);
     }
 
-    componentDidMount(){            
+    componentDidMount(){
        this.updateTotale();
     }
 
     updateTotale(){
-         var sum = 0;
+        var sum = 0;
         this.props.iscrizione.rate.forEach(rata => {
             sum+=rata.importo;
         });
@@ -27,6 +27,8 @@ class ModalRate extends React.Component{
 
 
     render(){
+
+
         const rate = this.props.iscrizione.rate.map((rata,index) => 
 
                 <tr key={index}>
