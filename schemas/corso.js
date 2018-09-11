@@ -8,7 +8,7 @@ const {Privato,PrivatoInput} = require ('../types/privato.js');
 const Rata = require ('../types/rata.js');
 const {Iscrizione,IscrizioneInput} = require ('../types/iscrizione.js');
 const Corso = require ('../types/corso.js');
-const {Fattura} = require ('../types/fattura.js');
+const {Fattura} = require('../types/fattura.js').default;
 
 
 const Query = `
@@ -60,7 +60,6 @@ const corsoSchema = makeExecutableSchema({
                       idcorso: idcorso
                     }, 
                 })
-                console.log(a)
             }
 
         }
