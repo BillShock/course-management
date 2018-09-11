@@ -14,7 +14,6 @@ class Show extends React.Component{
     constructor(props,state){
         super(props,state);
         this.state={privato: {},modalRate:'',currentIscrizione:0};
-       
     }
 
     componentDidMount(){
@@ -34,7 +33,7 @@ class Show extends React.Component{
                 if (loading) return "Loading...";
                 if (error) return `Error! ${error.message}`;
                     var privato = data.privato;
-                    
+                   
                     const iscrizioni = privato.iscrizioni.map((iscrizione,index) => 
                             <tr key={index}>
                                 <td>{iscrizione.corso.codice}</td>
@@ -57,7 +56,7 @@ class Show extends React.Component{
                     return(
                        <div>
 
-                           <ModalRate iscrizione={privato.iscrizioni[this.state.currentIscrizione]} closeModal={()=>this.setState({modalRate:''})} isActive={this.state.modalRate} />
+                           <ModalRate iscrizione={iscrizioni[this.state.currentIscrizione] === "undefined" ? iscrizioni[this.state.currentIscrizione] : {corso:{codice:"",nome:"",ore:""},rate:[],prezzo:""}} closeModal={()=>this.setState({modalRate:''})} isActive={this.state.modalRate} />
 
                             <h1>Privato</h1>
                             <div className="columns">

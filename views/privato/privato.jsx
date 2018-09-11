@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Table from '../commonsJSX/components/table';
-
-
 import { withApollo } from 'react-apollo';
 import 'babel-polyfill';
 
