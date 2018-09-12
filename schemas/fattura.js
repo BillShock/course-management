@@ -82,7 +82,6 @@ const schema = makeExecutableSchema({
         },
         Mutation:{
             createFattura: async function (_,{input}) {
-                //return await FatturaModel.create(input);
                 var customer;
                 if(input.customerType=="privato"){
                     customer = await PrivatoModel.findAll({where:{CF:input.id_cliente}}).map(el => el.get({ plain: true }));
@@ -95,6 +94,10 @@ const schema = makeExecutableSchema({
                 else{
                     delete input.customerType;
                     input.id_cliente = customer[0].id;
+                    const invoice = await FatturaModel.findAll({where:{anno:input.anno,numero:input.numero}}).map(el => el.get({ plain: true }));
+                    if(invoice.length >= 1){
+                        throw new Error('Fattura già esistente!');
+                    }else
                     return await FatturaModel.create(input);
                 }
                     

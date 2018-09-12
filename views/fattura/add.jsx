@@ -165,7 +165,7 @@ class Add extends React.Component{
         this.setState({
             formSent: true,
             notificationType:"is-danger",
-            notificationMessage:error.message,
+            notificationMessage:error.graphQLErrors[0].message,
             formActionText:"Fattura non Creata",
             btnState:false,
             btnClassState:""
