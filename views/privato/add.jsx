@@ -158,7 +158,7 @@ class Add extends React.Component{
 
         return(
 
-            <Mutation mutation={ADD_PRIVATO}  onError={(error)=>(console.log(error.internalData))}>
+            <Mutation mutation={ADD_PRIVATO}  onError={(error)=>(console.log(error.graphQLErrors[0].message))}>
                 {(createPrivato, { data,error }) => (
                     
                     <div>

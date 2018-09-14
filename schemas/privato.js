@@ -155,7 +155,7 @@ const privatoSchema = makeExecutableSchema({
                 var cliente ={citta:input['citta'],p_iva: input['p_iva'],telefono:input['telefono'],email:input['email'],note:input['note'],indirizzo:input['indirizzo'],civico:input['civico']};
 
                 
-                var customer = await PrivatoModel.findAll({where:{CF:privato.cf}}).map(el => el.get({ plain: true }));
+                const customer = await PrivatoModel.findAll({where:{CF:privato.cf}}).map(el => el.get({ plain: true }));
                 if(customer.length > 0)
                     //throw new Error('Privato già esistente!');
                    throw new alreadyExists();
