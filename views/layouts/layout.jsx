@@ -45,6 +45,8 @@ class MainLayout extends React.Component{
                         <li><Link to="/corso"><i className="fas fa-link"></i><span className="labels">Corso</span></Link></li>
                         <li><Link to="/fattura"><i className="fas fa-link"></i><span className="labels">Fatture</span></Link></li>
                         <li><Link to="/privato"><i className="fas fa-link"></i><span className="labels">Privato</span></Link></li> 
+                        <li><Link to="/societa"><i className="fas fa-link"></i><span className="labels">Societa</span></Link></li> 
+
                     </ul>
                 <div className="menu-label" id="sidebar-label"><i className="fas fa-chevron-circle-right"></i><span className="labels-category">ADMINISTRATION</span><hr className="navbar-divider" id="divider" /></div>
                     <ul className="menu-list">

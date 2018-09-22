@@ -87,6 +87,7 @@ class Table extends React.Component{
 
                        
                         <a className="button is-danger is-outlined" onClick={e => {
+
                             e.preventDefault();
                             //deleteFattura({ variables: { numero:row.numero,anno: row.anno } });
                             deleteFattura({ variables: variables });

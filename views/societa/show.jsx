@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import Table from '../commonsJSX/components/table';
 import ModalSearch from '../commonsJSX/components/modalSearch';
 import { Link } from 'react-router-dom';
-import ModalRate from './modalRate/modalRate';
 import { Redirect } from 'react-router-dom';
 
 import { Query } from "react-apollo";
-import {GET_PRIVATO} from './queries';
+import {GET_SOCIETA} from './queries';
 
 
 class Show extends React.Component{
@@ -26,24 +25,17 @@ class Show extends React.Component{
         
         return(
 
-            <Query query={GET_PRIVATO} variables={{id:this.props.match.params.id}}>
+            <Query query={GET_SOCIETA} variables={{id:this.props.match.params.id}}>
 
             {({loading,error,data}) => {
 
                 if (loading) return "Loading...";
                 if (error) return `Error! ${error.message}`;
-                    var privato = data.privato;
-                   console.log(privato.iscrizioni)
-                    const iscrizioni = privato.iscrizioni.map((iscrizione,index) => 
-                            <tr key={index}>
-                                <td>{iscrizione.corso.codice}</td>
-                                <td>{iscrizione.corso.nome}</td>
-                                <td>€ {iscrizione.prezzo}</td>
-                                <td><a onClick={()=>this.setState({modalRate:'is-active',currentIscrizione:index})} className="button is-primary">Rate</a></td>
-                            </tr>
-                    )
+                    var societa = data.societa;
+                   
+             
 
-                    const fatture = privato.fatture.map((fattura,index) => 
+                    const fatture = societa.fatture.map((fattura,index) => 
                             <tr key={index}>
                                 <td>{fattura.numero}</td>
                                 <td>{fattura.anno}</td>
@@ -56,45 +48,43 @@ class Show extends React.Component{
                     return(
                        <div>
 
-                           <ModalRate idPrivato={this.props.match.params.id} iscrizione={iscrizioni.length > 0 ? privato.iscrizioni[this.state.currentIscrizione] : {corso:{codice:"",nome:"",ore:""},rate:[],prezzo:""}} closeModal={()=>this.setState({modalRate:''})} isActive={this.state.modalRate} />
-
-                            <h1>Privato</h1>
+                            <h1>Società</h1>
                             <div className="columns">
                                 <div className="column">
-                                    <div><strong>CF: </strong> {privato.cf}</div>
+                                    <div><strong>Ragione Sociale: </strong> {societa.rag_sociale}</div>
                                 </div>
                                 <div className="column">
-                                   <div><strong>Nome: </strong> {privato.nome}</div>
+                                   <div><strong>Partita IVA: </strong> {societa.p_iva}</div>
                                 </div>
                                 <div className="column">
-                                    <div><strong>Cognome: </strong> {privato.cognome}</div>
+                                    <div><strong>DVR: </strong> {societa.dvr}</div>
                                 </div>
                             </div>
 
                             <div className="columns">
                                 <div className="column">
-                                    <div><strong>Indirizzo: </strong> {privato.indirizzo}, {privato.civico}</div>
+                                    <div><strong>Indirizzo: </strong> {societa.indirizzo}, {societa.civico}</div>
                                 </div>
                                 <div className="column">
-                                    <div><strong> CAP: </strong> {privato.cap}</div>
+                                    <div><strong> CAP: </strong> {societa.cap}</div>
                                 </div>
                                 <div className="column">
-                                    <div><strong>Città: </strong> {privato.citta}</div>
+                                    <div><strong>Città: </strong> {societa.citta}</div>
                                 </div>
                             </div>
 
                             <div className="columns">
                                 <div className="column">
-                                    <div><strong>Telefono: </strong> {privato.telefono}</div>
+                                    <div><strong>Telefono: </strong> {societa.telefono}</div>
                                 </div>
                                 <div className="column">
-                                    <div><strong> Email: </strong> {privato.email}</div>
+                                    <div><strong> Email: </strong> {societa.email}</div>
                                 </div>
                             </div>
 
                             <div>
                                 <strong>Note:</strong>
-                                <div>{privato.note}</div>
+                                <div>{societa.note}</div>
                             </div>
 
 
@@ -102,28 +92,7 @@ class Show extends React.Component{
 
 
 
-                            <div className="iscrizioni-privato">
-                                <nav className="level">
-                                    <div className="level-left">
-                                        
-                                        <p className="subtitle is-5">
-                                            <strong>Iscrizioni :</strong>
-                                        </p>
-                                    </div>
-                                </nav>
-                                <table className="table is-fullwidth">
-
-                                <thead>
-                                    <tr><th>Codice</th><th>Nome</th><th>Prezzo</th><th>Azioni</th></tr>
-                                </thead>
-
-                                <tbody>
-                                    {iscrizioni}
-                                </tbody>
-
-                                </table>
-                            </div>
-
+                          
 
                             <div className="fatture-privato">
                                 <nav className="level">

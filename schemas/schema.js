@@ -5,6 +5,8 @@ const privatoSchema = require('./privato.js');
 const societaSchema = require('./societa.js');
 const corsoSchema = require('./corso.js');
 const fatturaSchema = require('./fattura.js');
+const rataSchema = require('./rata.js');
+
 
 /*
 const schema = makeExecutableSchema({
@@ -19,7 +21,8 @@ const schema = mergeSchemas({
       privatoSchema,
       societaSchema,
       corsoSchema,
-      fatturaSchema
+      fatturaSchema,
+      rataSchema
     ],
   });
 

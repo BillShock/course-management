@@ -9,8 +9,8 @@ const {Iscrizione} = require ('../types/iscrizione.js');
 const Cliente = require ('../types/cliente.js');
 const {Privato} = require ('../types/privato.js');
 const {Societa} = require ('../types/societa.js');
-const Rata = require ('../types/rata.js');
-const Corso = require ('../types/corso.js');
+const {Rata} = require ('../types/rata.js');
+const {Corso} = require ('../types/corso.js');
 const {Fattura,FatturaInput} = require ('../types/fattura.js');
 
 const Query = `

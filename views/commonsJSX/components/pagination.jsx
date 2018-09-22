@@ -16,7 +16,7 @@ class Pagination extends React.Component{
     componentDidUpdate(prevProps){
         if(this.props.rowsLen != prevProps.rowsLen){
             var pagination = Object.assign({},this.props.data.pagination);
-        
+
             //Aggiorno i valori locali di Apollo client
             pagination[this.props.name] = {
                initial:0,

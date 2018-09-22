@@ -3,15 +3,9 @@ const { makeExecutableSchema } = require('graphql-tools');
 const ClienteModel = require('../models/ClienteModel.js');
 const SocietaModel = require('../models/SocietaModel.js');
 const FatturaModel = require('../models/FatturaModel.js');
-
-
 const {Fattura} = require ('../types/fattura.js');
-
 const Cliente = require ('../types/cliente.js');
 const {Societa,SocietaInput} = require ('../types/societa.js');
-
-
-
 
 const Query = `
 type Query{
@@ -24,7 +18,6 @@ type Mutation{
     updateSocieta(id: ID!,input:SocietaInput): Societa
     deleteSocieta(id: ID!): Societa
 }
-
 `;
 
 const societaSchema = makeExecutableSchema({
@@ -86,24 +79,6 @@ const societaSchema = makeExecutableSchema({
 
         Mutation:{
             createSocieta: async function (_,{input}) {
-                //var temp = await PrivatoModel.findAll({where:{id:1}}).map(el => el.get({ plain: true }));
-                //return temp[0];
-                /*
-                var data = {
-                    id:1048,
-                    nome: "Aldo",
-                    cognome : "Aldone",
-                    data_nascita: "2016-05-14",
-                    cf: "12324343534656",
-                    citta : "Napoli",
-                    p_iva : "0197232155",
-                    telefono : "01234567",
-                    email : "aldo@aldo.aldo",
-                    note : "dsfdsfdsfdsf",
-                    indirizzo: "Via. ...",
-                    civico : "123"
-                }
-                */
 
                 var societa ={rag_sociale: input['rag_sociale'],dvr:input['dvr']};
                 var cliente ={citta:input['citta'],p_iva: input['p_iva'],telefono:input['telefono'],email:input['email'],note:input['note'],indirizzo:input['indirizzo'],civico:input['civico']};
@@ -111,27 +86,24 @@ const societaSchema = makeExecutableSchema({
                 
                 const customer = await SocietaModel.findAll({where:{rag_sociale:societa.rag_sociale}}).map(el => el.get({ plain: true }));
                 if(customer.length > 0)
-                    throw new Error('Privato già esistente!');
-                    //throw new alreadyExists();
+                    throw new Error('Società già esistente!');
                    
 
                 var c = await ClienteModel.create(cliente);
-                var p = await SocietaModel.create(Object.assign({id:c.id}, societa)).catch(Sequelize.ValidationError, function (error){
-                   //c.destroy();
-                });
+                var p = await SocietaModel.create(Object.assign({id:c.id}, societa));
 
-                return Object.assign(c.id,input);
+                return Object.assign({id:c.id},input);
 
             },
             updateSocieta: async function(_,{id,input}){
-                var privato ={nome: input['nome'],cognome:input['cognome'],data_nascita:input['data_nascita'],cf:input['cf']};
+                var societa ={rag_sociale: input['rag_sociale'],dvr:input['dvr']};
                 var cliente ={citta:input['citta'],p_iva: input['p_iva'],telefono:input['telefono'],email:input['email'],note:input['note'],indirizzo:input['indirizzo'],civico:input['civico']};
 
 
                 var c = await ClienteModel.update(cliente,{where: {id:id}});
-                var p = await SocietaModel.update(privato,{where: {id:id}});
+                var p = await SocietaModel.update(societa,{where: {id:id}});
 
-                return Object.assign(id,input);
+                return Object.assign({id:id},input);
             },
 
             deleteSocieta: async function(_,{id}){

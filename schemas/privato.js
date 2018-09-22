@@ -13,10 +13,10 @@ const CorsoModel = require('../models/CorsoModel.js');
 const {Fattura} = require ('../types/fattura.js');
 
 const Cliente = require ('../types/cliente.js');
-const {Privato,PrivatoInput} = require ('../types/privato.js');
-const Rata = require ('../types/rata.js');
+const {Privato,PrivatoInput} = require('../types/privato.js');
+const {Rata} = require ('../types/rata.js');
 const {Iscrizione} = require ('../types/iscrizione.js');
-const Corso = require ('../types/corso.js');
+const {Corso} = require ('../types/corso.js');
 
 const { createError } = require('apollo-errors');
 

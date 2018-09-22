@@ -1,8 +1,10 @@
 import React from "react";
 import { withApollo } from "react-apollo";
+import { Mutation } from "react-apollo";
+import {GET_PRIVATO,DELETE_RATA} from '../queries';
 
 
-class ModalRate extends React.Component{
+class ShowRate extends React.Component{
 
     constructor(props,state){
         super(props,state);
@@ -25,9 +27,7 @@ class ModalRate extends React.Component{
         });
     }
 
-
     render(){
-
 
         const rate = this.props.iscrizione.rate.map((rata,index) => 
 
@@ -37,19 +37,43 @@ class ModalRate extends React.Component{
                     <td>{rata.importo}</td>
                     <td>{rata.data}</td>
                     <td>{rata.metodo}</td>
+
+                    <Mutation mutation={DELETE_RATA}
+                    update={(cache) => {
+                        var rate = cache.readQuery({query: GET_PRIVATO,variables:{id:this.props.idPrivato.toString()}});
+                        rate.privato.iscrizioni[rate.privato.iscrizioni.findIndex((i)=>{return i.codice==this.props.iscrizione.codice })].rate.splice(index,1);
+                        cache.writeQuery({ query: GET_PRIVATO , variables:{id:this.props.idPrivato.toString()}, data:{privato:rate.privato} });
+                    }}
+                    >
+
+                    {(deleteRata, { data }) => (
+                    
+                        <td><span className="btn-delete" onClick={(e) => {
+                            e.preventDefault();
+                            if (confirm("Sei sicuro di eliminare la rata?")) {
+                                deleteRata({ variables: {
+                                    cod_iscrizione:this.props.iscrizione.codice,
+                                    num_rata:rata.num_rata
+                                }});
+                            }
+                        }} className="icon is-small"><i className="fas fa-times"></i> </span></td>
+                  
+                    )}
+
+                    </Mutation>
                 </tr>
                      
         )
         return(
-            <div className={"modal " + this.props.isActive}>
-                <div className="modal-background"></div>
-                <div className="modal-card">
-                    <header className="modal-card-head">
-                        <p className="modal-card-title">Iscrizione</p>
-                        <button onClick={this.props.closeModal} className="delete" aria-label="close"></button>
-                    </header>
-                    <section className="modal-card-body">
 
+            <div className="modal-card">
+            <header className="modal-card-head">
+                <p className="modal-card-title">Rate Iscrizione</p>
+                <button onClick={this.props.closeModal} className="delete" aria-label="close"></button>
+            </header>
+            <section className="modal-card-body">
+
+            <div>
                         <div className="columns">
                                 <div className="column">
                                     <div><strong>Codice: </strong> {this.props.iscrizione.corso.codice}</div>
@@ -72,7 +96,7 @@ class ModalRate extends React.Component{
                         <table className="table is-fullwidth is-striped is-hoverable">
 
                             <thead>
-                                <tr><th>Num</th><th>Num Ricevuta</th><th>Importo</th><th>Data</th><th>Metodo</th></tr>
+                                <tr><th>Num</th><th>Num Ricevuta</th><th>Importo</th><th>Data</th><th>Metodo</th><th></th></tr>
                             </thead>
 
                             <tbody>
@@ -98,16 +122,16 @@ class ModalRate extends React.Component{
                                 </div>
                             </div>
                         </nav>
-                    </section>
-                    <footer className="modal-card-foot">
-                        <button className="button is-success">Save changes</button>
-                        <button onClick={this.props.closeModal} className="button">Cancel</button>
-                    </footer>
-                </div>
+            </div>
+            </section>
+            <footer className="modal-card-foot">
+                <button onClick={(e)=>{this.props.changeAddState(e,true)}} className="button is-success">Nuova Rata</button>
+                <button onClick={this.props.closeModal} className="button">Esci</button>
+            </footer>
             </div>
         )
     }
 }
 
 
-export default withApollo(ModalRate);
+export default withApollo(ShowRate);

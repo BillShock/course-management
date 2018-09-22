@@ -45,6 +45,7 @@ query ($id: ID!) {
           totale
         }
         iscrizioni{
+          codice
           prezzo
           esito_esame
           corso{
@@ -70,6 +71,28 @@ mutation($id: ID!){
         id
         nome
         cognome
+    }
+}
+`;
+
+export const ADD_RATA = gql`
+mutation($input: RataInput){
+  createRata(input: $input){
+        cod_iscrizione
+        num_rata
+        importo
+        data
+        metodo
+        num_ricevuta
+    }
+}
+`;
+
+export const DELETE_RATA = gql`
+mutation($cod_iscrizione: ID!,$num_rata:ID!){
+    deleteRata(cod_iscrizione: $cod_iscrizione,num_rata: $num_rata){
+        cod_iscrizione
+        num_rata
     }
 }
 `;

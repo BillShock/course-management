@@ -5,6 +5,7 @@ import MainLayout from './layouts/layout';
 import HomePage from './pages/homepage';
 import CorsoRouter from './corso/router.jsx';
 import PrivatoRouter from './privato/router';
+import SocietaRouter from './societa/router';
 import FatturaRouter from './fattura/router';
 
 import { ApolloProvider} from "react-apollo";
@@ -53,6 +54,13 @@ const defaults = {
       current:1,
       __typename:"PrivatiPagination"
     },
+    societa:{
+      initial:0,
+      final:10,
+      perPage:10,
+      current:1,
+      __typename:"SocietaPagination"
+    },
     fatture:{
       initial:0,
       final:10,
@@ -97,6 +105,7 @@ class App extends React.Component{
                       </Switch>
                       <CorsoRouter path="/corso"/>
                       <PrivatoRouter path="/privato"/>
+                      <SocietaRouter path="/societa"/>
                       <FatturaRouter path="/fattura"/>
                   </MainLayout>
               </BrowserRouter>
