@@ -55,36 +55,36 @@ class AddRata extends React.Component{
                 }})
             }}>
             <header className="modal-card-head">
-                <p className="modal-card-title">Nuova Rata</p>
+                <p className="modal-card-title"><strong>Nuova Rata</strong></p>
                 <button onClick={this.props.closeModal} className="delete" aria-label="close"></button>
             </header>
             <section className="modal-card-body">
             
             <div>
                 <div className="field">
-                    <label className="label">Numero Rata</label>
+                    <label className="label label-add">Numero Rata</label>
                     <div className="control">
-                        <input name="num_rata" className="input" type="text" placeholder="" onChange={this.handleChange}/>
+                        <input name="num_rata" className="input" type="text" placeholder="Scrivi qui" onChange={this.handleChange}/>
                     </div>
                 </div>
 
                 <div className="field">
-                    <label className="label">Data</label>
+                    <label className="label label-add">Data</label>
                     <div className="control">
-                        <Cleave value={this.state.rata.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data" className="input" placeholder="Data"/>
+                        <Cleave value={this.state.rata.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data" className="input" placeholder="Scrivi qui"/>
                     </div>
                 </div>
 
 
                 <div className="field">
-                    <label className="label">Importo</label>
+                    <label className="label label-add">Importo</label>
                     <div className="control">
-                        <input name="importo" onChange={this.handleChange} className="input" type="text" placeholder=""/>
+                        <input name="importo" onChange={this.handleChange} className="input" type="text" placeholder="Scrivi qui"/>
                     </div>
                 </div>
 
                 <div className="field">
-                    <label className="label">Metodo di Pagamento</label>
+                    <label className="label label-add">Metodo di Pagamento</label>
                     <div className="control">
                     <div className="select is-fullwidth">
                         <select name="country">
@@ -97,9 +97,9 @@ class AddRata extends React.Component{
                 </div>
 
                 <div className="field">
-                    <label className="label">Numero Ricevuta</label>
+                    <label className="label label-add">Numero Ricevuta</label>
                     <div className="control">
-                        <input name="num_ricevuta" onChange={this.handleChange} className="input" type="text" placeholder=""/>
+                        <input name="num_ricevuta" onChange={this.handleChange} className="input" type="text" placeholder="Scrivi qui"/>
                     </div>
                 </div>
             </div>
@@ -108,8 +108,8 @@ class AddRata extends React.Component{
             
             
                 <footer className="modal-card-foot">
-                    <button type="submit" className="button is-success">Aggiungi Rata</button>
-                    <button onClick={(e)=>{this.props.changeAddState(e,false)}} className="button">Indietro</button>
+                    <button type="submit" className="button is-rounded show">Aggiungi Rata</button>
+                    <button onClick={(e)=>{this.props.changeAddState(e,false)}} className="button is-rounded is-delete">Indietro</button>
                 </footer>
                 </form>
             </div>

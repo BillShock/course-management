@@ -61,8 +61,8 @@ class Table extends React.Component{
             const tags = this.props.showBtn.tags.map((tag)=>(row[tag]));
                     
                 // Crezione pulsanti azioni
-                var showBtn = <Link className="button is-success" to={this.props.link + this.props.showBtn.link + "/" +  tags.join('/') }>{this.props.showBtn.lbl}</Link>
-                var editBtn = this.props.editBtn == false ? false : <Link className="button is-link is-outlined" to={this.props.link + this.props.editBtn.link + "/" + row[this.props.editBtn.tag] }><span> {this.props.editBtn.lbl} </span> <span className="icon is-small"><i className="fas fa-edit"></i> </span></Link>
+                var showBtn = <Link className="button is-rounded show" to={this.props.link + this.props.showBtn.link + "/" +  tags.join('/') }><span className="icon is-small"><i className="fas fa-eye"></i></span></Link>
+                var editBtn = this.props.editBtn == false ? false : <Link className="button is-rounded edit" to={this.props.link + this.props.editBtn.link + "/" + row[this.props.editBtn.tag] }><span className="icon is-small"><i className="fas fa-edit"></i></span></Link>
                // var deleteBtn =  this.props.deleteBtn == false ? false : <a className="button is-danger is-outlined" onClick={()=>this.props.deleteBtn.action(row.id)}><span>{this.props.deleteBtn.lbl}</span> <span className="icon is-small"><i className="fas fa-times"></i> </span></a>
 
 
@@ -86,13 +86,13 @@ class Table extends React.Component{
                     
 
                        
-                        <a className="button is-danger is-outlined" onClick={e => {
+                        <a className="button is-rounded is-delete" onClick={e => {
 
                             e.preventDefault();
                             //deleteFattura({ variables: { numero:row.numero,anno: row.anno } });
                             deleteFattura({ variables: variables });
                             console.log(data);
-                        }}><span>{this.props.deleteBtn.lbl}</span> <span className="icon is-small"><i className="fas fa-times"></i> </span>
+                        }}> <span className="icon is-small"><i className="fas fa-times"></i> </span>
                         </a>
 
                     )}
@@ -107,7 +107,7 @@ class Table extends React.Component{
 
         return (
             <div>
-            <table className="table is-hoverable is-fullwidth">
+            <table className="table is-fullwidth">
                  <thead>
                    <tr>{throws}</tr>
                 </thead>

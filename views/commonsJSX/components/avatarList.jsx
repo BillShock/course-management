@@ -61,7 +61,7 @@ class AvatarList extends React.Component{
                     <div className="column"> 
                         <div>Azione</div> 
                         <div>
-                            <Link to={"/privato/show/" + row.privato.id} className="button is-success is-outlined"> <span className="icon is-small"> <i className="fas fa-eye"></i> </span> </Link>
+                            <Link to={"/privato/show/" + row.privato.id} className="button is-rounded show"> <span className="icon is-small"> <i className="fas fa-eye"></i> </span> </Link>
                             <Mutation mutation={DELETE_ISCRIZIONE}
                             
                             update={(store) => {
@@ -78,7 +78,7 @@ class AvatarList extends React.Component{
 
                             >
                             {deleteIscrizione => (
-                                <a className="button is-danger is-outlined" onClick={(e)=>{this.setState({indexElement:index});deleteIscrizione({variables:{idcliente:this.props.rows.iscrizione[this.state.indexElement].privato.id,idcorso:this.props.rows.id}})}}> <span className="icon is-small"><i className="fas fa-times"></i> </span></a>
+                                <a className="button is-rounded is-delete" onClick={(e)=>{this.setState({indexElement:index});deleteIscrizione({variables:{idcliente:this.props.rows.iscrizione[this.state.indexElement].privato.id,idcorso:this.props.rows.id}})}}> <span className="icon is-small"><i className="fas fa-times"></i> </span></a>
                             )}
                             </Mutation>
                         </div>

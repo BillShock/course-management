@@ -1,11 +1,491 @@
+/*
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+*/
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
 #app {
-    font-family: 'Nunito', sans-serif;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
 }
+
+/* START LOGIN CSS */
+/*html {
+    background-color: #40403F;
+  }
+  
+  body {
+    height: 100vh;
+  }*/
+  
+  a.underlineHover {
+    color: gray;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  
+  h2.active {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 40px 8px 10px 8px; 
+    color: #0d0d0d;
+    border-bottom: 2px solid tomato;
+  }
+  
+  /* STRUCTURE */
+  
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+    
+  }
+  
+  #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+    border: 1px solid #40403F;
+  }
+  
+  #formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .rememberLogin {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+      padding-left: 35px;
+  }
+  
+  span.active {
+    background-color: white !important;
+    color: #40403F !important;
+    border-bottom-width: 2px !important;
+    border-bottom-color: #40403F !important;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  
+  /* FORM TYPOGRAPHY*/
+  
+  #submit  {
+    background-color: tomato;
+    border: 1px solid #40403F;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+   
+  #submit:hover  {
+    background-color: #40403F;
+    border: 1px solid tomato;
+    -webkit-box-shadow: 0 4px 4px 0 #40403F /*rgba(95,186,233,0.4)*/;
+    box-shadow: 0 4px 4px 0 #40403F /*rgba(95,186,233,0.4)*/;
+  }
+  
+  #submit:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  
+  #login,
+  #password {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+  }
+  
+  #login:focus,
+  #password:focus {
+    background-color: #fff;
+    border-bottom: 2px solid tomato;
+  }
+  
+  
+  /* ANIMATIONS */
+  
+  /* Simple CSS3 Fade-in-down Animation */
+  .fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @-webkit-keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  
+  /* Simple CSS3 Fade-in Animation */
+  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  
+  .fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+  
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+  
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+  }
+  
+  .fadeIn.first {
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  }
+  
+  .fadeIn.second {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+  }
+  
+  .fadeIn.third {
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+  }
+  
+  .fadeIn.fourth {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+  
+  /* Simple CSS3 Fade-in Animation */
+  .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: tomato;
+    content: "";
+    transition: width 0.2s;
+  }
+  
+  .underlineHover:hover {
+    color: #0d0d0d;
+  }
+  
+  .underlineHover:hover:after{
+    width: 100%;
+  }
+  
+  
+  
+  /* OTHERS */
+  
+  *:focus {
+      outline: none;
+  } 
+  
+  #icon {
+    width:60%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .copyright {
+      color: white;
+      font-size: 13px;
+  }
+
+  /* END LOGIN CSS */
+
 
 #testevent {
     color: red;
+}
+
+
+/*START CSS TABLE*/
+.table thead td, .table thead th {
+    color: white !important;
+    background-color: #40403F;
+}
+
+.table {
+    box-shadow: 0 0 2px #40403F;
+}
+
+tr {
+    border: 1px solid #dddddd;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+/*END CSS TABLE*/
+
+/*START CSS BUTTON*/
+.show, 
+.is-add-fattura,
+.is-submit-fattura,
+.is-add-course, 
+.is-submit-course,
+.is-add-privato,
+.is-submit-privato,
+.is-submit-persona,
+.is-add-societa,
+.is-submit-societa {
+    background-color: #4CAF50;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.show:hover,
+.is-add-fattura:hover,
+.is-submit-fattura:hover,
+.is-add-course:hover,
+.is-submit-course:hover, 
+.is-add-privato:hover,
+.is-submit-privato:hover,
+.is-submit-persona:hover,
+.is-add-societa:hover,
+.is-submit-societa:hover {
+    background-color: white;
+    color: #4CAF50;
+}
+
+.edit, .rate {
+    background-color: #5F9BBF;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.edit:hover,
+.rate:hover {
+    background-color: white;
+    color: #5F9BBF;
+}
+
+.is-delete {
+    background-color: #BF4A39;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.is-delete:hover {
+    background-color: white;
+    color: #BF4A39;
+}
+
+.pagination-previous, 
+.pagination-next, 
+.is-current-pagination,
+.print
+ {
+    background-color: #40403F;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.pagination-previous:hover, 
+.pagination-next:hover, 
+.is-current-pagination:hover,
+.print:hover {
+    background-color: tomato;
+    color: white;
+}
+
+/*END CSS BUTTON*/
+
+/*input[type=text]:hover {
+    box-shadow: 0 0 2px #40403F;
+}*/
+
+/*START CSS TABS*/
+.tabs.is-toggle a {
+    border-bottom-width: 2px !important;
+    border-bottom-color: tomato !important;
+}
+
+.is-active-tab {
+    border-color: red !important;
+}
+
+.tabs a {
+    background-color: #40403F !important;
+    color: white !important;
+}
+
+.tabs a:hover {
+    background-color: white !important;
+    color: #40403F !important;
+    border-bottom-width: 2px !important;
+    border-bottom-color: #40403F !important;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+/*END CSS TABS*/
+
+/*START CSS CARD-ADD*/
+.title-card-add {
+    background-color: #40403F;
+    color: white;
+    padding-left: 12px;
+    border-radius: 5px 5px 0px 0px;
+    width: auto;
+    text-transform: uppercase;
+}
+
+/*
+.card-add {
+    box-shadow: 0 0 1px tomato;
+}*/
+
+.label-card-add {
+    text-align: center;
+    font-size: 22px;
+}
+
+.label-add {
+    background-color: #40403F;
+    color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: tomato; 
+    padding-left: 12px;
+    border-radius: 5px 5px 0px 0px;
+    padding-top: 2px;
+    font-size: 15px;
+}
+
+
+.margin-add {
+    margin-top: 30px;
+}
+/*END CSS CARD-ADD*/
+
+/*START CSS COLUMN-SHOW*/
+
+.column-show-title {
+    text-decoration: underline;
+    text-decoration-color: tomato;
+    padding-left: 10px;
+}
+
+.column-show {
+    position: relative;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin: auto;
+    
+    margin-bottom: 40px;
+
+}
+
+.label-column-show {
+	border-left: 6px;
+    border-left-style: solid;
+    border-color: tomato;
+	padding-left: 5px;
+}
+
+/*END CSS COLUMN-SHOW*/
+
+.reset-icon{
+    pointer-events: all !important;
+    cursor: pointer;
 }
 
 .dropdownLabel {
@@ -18,16 +498,13 @@
 }
 
 a.dropdown-item:hover {
-    background-color: tomato !important; 
+    background-color: tomato !important;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s; 
   } 
   
 #menu, #dropdownUser {
     background-color: #40403F;
-}
-
-.reset-icon{
-    pointer-events: all !important;
-    cursor: pointer;
 }
 
 .containerSearch{
@@ -118,9 +595,15 @@ transition: all .55s ease;
     margin-bottom: 30px;
 }
 
+
 .menu-list a:hover {
+    
     background-color: tomato;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
 }
+
 
 #containerMyLogo {
     text-align: center;
@@ -138,16 +621,28 @@ transition: all .55s ease;
     transform: translateY(-50%);
 }
 
+p.logo {
+    font-size: 25px;
+}
+
 h1 {
     display: inline-block;
     font-size: 30px;
 }
 
-#divider {
+/*START CSS DIVIDER*/
+.navbar-divider {
     background-color: tomato;
 }
 
+.add-divider {
+    background-color: #40403F;
+}
+
+/*END CSS DIVIDER*/
+
 #navFooter {
+    color: white;
     background-color: #40403F;
 
 }
@@ -182,6 +677,59 @@ h1 {
     border-radius: 5px;
 }
 
+.box {
+    background-color: #DDE2E5;
+    box-shadow: 0 0 2px #40403F;
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+
+/*START CSS SELECT*/
+/*
+.select select {
+    background-color: #40403F !important;
+    color: white !important; 
+}
+
+.select select:hover {
+    background-color: tomato;
+}
+
+.select select:nth-child() {
+    background-color: red;
+  }
+
+.select:not(.is-multiple)::after {
+    border: 1px solid white;
+    border-right: 0;
+    border-top: 0;
+    content: " ";
+    display: block;
+    height: 0.5em;
+    pointer-events: none;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    width: 0.5em;
+    margin-top: -0.375em;
+    right: 1.125em;
+    top: 50%;
+    z-index: 4;
+  }
+
+
+.select select:hover, .select select.is-hovered {
+    border-color: tomato !important;
+    }
+
+.select select:focus, .select select.is-focused, .select select:active, .select select.is-active {
+    border-color: tomato !important;
+  }*/
+
+/*END CSS SELECT*/
+
 #breadcrumb {
     margin-top: -20px;
     background-color: #DDE2E5;
@@ -194,7 +742,7 @@ h1 {
 
 #main {
     background-color: #F8F7FF;
-    
+    flex: 1 0 auto;
 }
 
 #menu a {
@@ -235,6 +783,31 @@ h1 {
     text-align: left;
 }
 
+#margin-corsi, #margin-privato, #margin-fattura, #margin-societa {
+    margin-top: 20px;
+}
+
+#card-privato {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    height: 230px;
+    background-color: #DDE2E5;
+    
+}
+
+#padding-privato, #padding-note {
+    padding-left: 12px;
+}
+
+/*START CSS FOOTERS*/
+.footer-add {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+ }
+
 #footer-item {
     color: white;
     font-size: 13px;
@@ -246,12 +819,16 @@ h1 {
 
 #footer-item a:hover {
     color: tomato;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
 .separatorFooter {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+/*END CSS FOOTERS*/
 
 .autocomplete-menu{
     border: 1px solid #d6d6d6;

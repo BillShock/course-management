@@ -88,40 +88,44 @@ import {GET_PRIVATO_ALL, DELETE_PRIVATO, GET_PAGINATION} from './queries';
       
         return (
             <div>
-                <h1>Privato</h1>
+                <h1><strong>Privato</strong></h1>
 
-                <div>
-                    <nav className="level">
-                    <div className="level-left">
-                        <div className="level-item">
-                        <p className="subtitle is-5">
-                            <strong></strong> posts
-                        </p>
-                        </div>
-                        <div className="level-item">
-                        <div className="field has-addons">
-                                <p className="control">
-                                    <input className="input" type="text" onChange={this.handleInputChange} placeholder="Ricerca"/>
-                                </p>
-                                <p className="control">
-                                    <button className="button">
-                                        Search
-                                    </button>
-                                </p>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                        <div className="level-right">
-                            <p className="level-item"><strong>All</strong></p>
-                            <p className="level-item"><a>Published</a></p>
-                            <p className="level-item"><a>Drafts</a></p>
-                            <p className="level-item"><a>Deleted</a></p>
-                            <p className="level-item"><Link className="button is-success" to={"/privato/add"}>Aggiungi Privato</Link></p>
-                        </div>
-                    </nav>
+<div id="margin-privato">
+    <nav className="level">
+        <div className="level-left">
+            <div className="level-item">
+                <p className="subtitle is-5">
+                    Numeri Privati archiviati <strong>{this.state.privati.length}</strong>
+                </p>
+            </div>
+        </div>
+            <div className="level-right">
+                <div className="level-item">
+                    <p className="level-item"><strong></strong></p>
+                    <p className="level-item"><a></a></p>
+                    <p className="level-item"><a></a></p>
+                    <p className="level-item"><a></a></p>
+                    <p className="level-item"><Link className="button is-add-privato" to={"/privato/add"}>Aggiungi Privato</Link></p>
                 </div>
+            </div>  
+    </nav>
+
+        <div className="columns">
+        <div className="column is-half">
+            <div className="box">
+                <p className="title is-6">Ricerca Privato digitando il Codice Fiscale, il Nome o il Cognome</p>
+                <div className="field has-addons" id="padding-byTop">
+                    <p className="control">      
+                    <input className="input" type="text" onChange={this.handleInputChange} placeholder="Ricerca"/>
+                    </p>
+                    <p className="control">
+                        <button className="button"><i className="fas fa-search"></i></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 
                 <div>
                     <Table name="privati" paginationQuery={GET_PAGINATION} link="/privato" throws={["ID","CF","Nome","Cognome",""]} showBtn={{lbl:"Show",tags:["id"],link:"/show"}} editBtn={{lbl:"Edit",tag:"id",link:"/edit"}} deleteBtn={{lbl:"Delete",tags:["id"],action:this.deleteCorso,deleteMutation:DELETE_PRIVATO}}  lblRows={['id','cf','nome','cognome']} rows={this.state.privati}  />

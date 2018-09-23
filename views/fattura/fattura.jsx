@@ -45,35 +45,50 @@ class Fattura extends React.Component{
                 return(
                     
                     <div>
-                    <div>
-                        <nav className="level">
-                        <div className="level-left">
-                            <div className="level-item">
-                            <p className="subtitle is-5">
-                                <strong></strong> Cerca Fattura :
-                            </p>
-                            </div>
-                            <div className="level-item">
-                            <div className="field has-addons">
-                                    <p className="control">
-                                        <input className="input" name="numero" type="text" onChange={(e)=>{this.setState({numero:e.target.value})}} value={this.state.numero} placeholder="Numero"/>
-                                    </p>
+                   <h1><strong>Fatture</strong></h1>
+                    <div id="margin-fattura">
+                    <nav className="level">
+                    <div className="level-left">
+                        <div className="level-item">
+                        <p className="subtitle is-5">
+                          Numero Fatture archiviate <strong>XX</strong>
+                        </p>
+                        </div>
+                    </div>
+                        <div className="level-right">
+                            <p className="level-item"><Link className="button is-add-fattura" to={"/fattura/add"}>Aggiungi Fattura</Link></p>
+                        </div>
+                    </nav>
 
-                                    <p className="control">
-                                        <input className="input" name="anno" type="text" onChange={(e)=>{this.setState({anno:e.target.value})}} value={this.state.anno} placeholder="Anno"/>
+                    <div className="columns">
+                        <div className="column">
+                            <div className="box">
+                                <p className="title is-6">Ricerca tramite numero Fattura</p>
+                                <div className="field has-addons" id="padding-byTop">
+                                    <p className="control">      
+                                    <input className="input" name="numero" type="text" onChange={(e)=>{this.setState({numero:e.target.value})}} value={this.state.numero} placeholder="Ricerca"/>
                                     </p>
-
-                                
-                                    
+                                    <p className="control">
+                                        <button className="button"><i className="fas fa-search"></i></button>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
-                            <div className="level-right">
-                               
-                                <p className="level-item"><Link className="button is-success" to={"/fattura/add"}>Nuova Fattura</Link></p>
+        
+                        <div className="column">
+                            <div className="box">
+                                <p className="title is-6">Ricerca tramite anno di emissione Fattura</p>
+                                <div className="field has-addons" id="padding-byTop">
+                                    <p className="control">      
+                                    <input className="input" name="anno" type="text" onChange={(e)=>{this.setState({anno:e.target.value})}} value={this.state.anno} placeholder="Ricerca"/>
+                                    </p>
+                                    <p className="control">
+                                        <button className="button"><i className="fas fa-search"></i></button>
+                                    </p>
+                                </div>
                             </div>
-                        </nav>
+                        </div>
+                    </div>
                     </div>
 
                     <div>

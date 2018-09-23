@@ -132,16 +132,18 @@ class Show extends React.Component{
 
         return(
             <div>
-            <h1>Fattura</h1>
-           <nav className="level">
+            <nav className="level">
                <div className="level-left">
-                  
+               <h1><strong>Scheda Fattura</strong></h1>
                </div>
-
                    <div className="level-right">
-                       <p className="level-item">
-                       <button className="button is-info"> <span className="fas fa-print"></span> <span> Stampa Fattura </span> </button>
-                    
+                       <p className="level-item buttons">
+                            <a className="button print is-rounded" onClick = {()=>printInvoice()}>
+                                <span className="icon">
+                                <i className="fas fa-print"></i>
+                                </span>
+                                <span>Stampa</span>
+                            </a>
                        </p>
                    </div>
            </nav>
@@ -213,6 +215,10 @@ class Show extends React.Component{
        </div>
         )
     }
+}
+
+function printInvoice() {
+    window.print();
 }
 
 function mapStateToProps(state){

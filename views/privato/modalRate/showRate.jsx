@@ -68,31 +68,40 @@ class ShowRate extends React.Component{
 
             <div className="modal-card">
             <header className="modal-card-head">
-                <p className="modal-card-title">Rate Iscrizione</p>
+                <p className="modal-card-title"><strong>Rate Iscrizione</strong></p>
                 <button onClick={this.props.closeModal} className="delete" aria-label="close"></button>
             </header>
             <section className="modal-card-body">
 
             <div>
-                        <div className="columns">
-                                <div className="column">
-                                    <div><strong>Codice: </strong> {this.props.iscrizione.corso.codice}</div>
-                                </div>
-                                <div className="column">
-                                    <div><strong> Nome: </strong> {this.props.iscrizione.corso.nome}</div>
-                                </div>
-                                <div className="column">
-                                    <div><strong>Ore: </strong> {this.props.iscrizione.corso.ore}</div>
-                                </div>
-                        </div>
 
-                        <div className="columns">
+                <div className="columns column-show">
                             <div className="column">
-                                <div><strong>Prezzo: </strong> € {this.props.iscrizione.prezzo}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Codice Corso</p>
+                                <p className="subtitle is-6">&#8594;{this.props.iscrizione.corso.codice}</p>
+                            </div>
+                            </div>
+                            <div className="column">
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Nome</p>
+                                <p className="subtitle is-6">&#8594;{this.props.iscrizione.corso.nome}</p>
+                            </div>
+                            </div>
+                            <div className="column">
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Ore</p>
+                                <p className="subtitle is-6">&#8594;{this.props.iscrizione.corso.ore}</p>
                             </div>
                         </div>
-
-
+                        <div className="column">
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Prezzo</p>
+                                <p className="subtitle is-6">&#8594;€ {this.props.iscrizione.prezzo}</p>
+                            </div>
+                        </div>
+                        </div>
+                        
                         <table className="table is-fullwidth is-striped is-hoverable">
 
                             <thead>
@@ -125,8 +134,8 @@ class ShowRate extends React.Component{
             </div>
             </section>
             <footer className="modal-card-foot">
-                <button onClick={(e)=>{this.props.changeAddState(e,true)}} className="button is-success">Nuova Rata</button>
-                <button onClick={this.props.closeModal} className="button">Esci</button>
+                <button onClick={(e)=>{this.props.changeAddState(e,true)}} className="button is-rounded show">Nuova Rata</button>
+                <button onClick={this.props.closeModal} className="button is-rounded is-delete">Esci</button>
             </footer>
             </div>
         )

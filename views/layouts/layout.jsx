@@ -15,7 +15,7 @@ class MainLayout extends React.Component{
             {/* START DIV LOGO*/}
             <div id="containerMyLogo">
                 <div id="myLogo">
-                    <h1>Course Management</h1>
+                    <p className="logo">Course Management</p>
                 </div>
             </div>
             {/* END DIV LOGO*/}
@@ -42,17 +42,18 @@ class MainLayout extends React.Component{
                 <div className="menu-label" id="sidebar-label"><i className="fas fa-chevron-circle-right"></i><span className="labels-category">GENERAL</span><hr className="navbar-divider" id="divider" /></div>
                     <ul className="menu-list">
                         <li><Link to="/"><i className="fas fa-home" title="Home"></i><span className="labels">Home</span></Link></li>
-                        <li><Link to="/corso"><i className="fas fa-link"></i><span className="labels">Corso</span></Link></li>
-                        <li><Link to="/fattura"><i className="fas fa-link"></i><span className="labels">Fatture</span></Link></li>
-                        <li><Link to="/privato"><i className="fas fa-link"></i><span className="labels">Privato</span></Link></li> 
-                        <li><Link to="/societa"><i className="fas fa-link"></i><span className="labels">Societa</span></Link></li> 
+                        <li><Link to="/"><i className="fas fa-table"></i><span className="labels">Dashboard</span></Link></li>
+                        <li><Link to="/event"><i className="far fa-calendar-alt"></i><span className="labels">Calendario</span></Link></li>
+                        
 
                     </ul>
                 <div className="menu-label" id="sidebar-label"><i className="fas fa-chevron-circle-right"></i><span className="labels-category">ADMINISTRATION</span><hr className="navbar-divider" id="divider" /></div>
                     <ul className="menu-list">
-                        <li><Link to="/"><i className="fas fa-table"></i><span className="labels">Visualizza corsi</span></Link></li>
-                        <li><Link to="/corso"><i className="fas fa-wrench"></i><span className="labels">Gestisci corsi</span></Link></li>
-                        <li><Link to="/event"><i className="far fa-calendar-alt"></i><span className="labels">Calendario</span></Link></li>
+                        <li><Link to="/corso"><i className="fas fa-chalkboard-teacher"></i><span className="labels">Gestione Corsi</span></Link></li>
+                        <li><Link to="/fattura"><i className="fas fa-file-invoice"></i><span className="labels">Gestione Fatture</span></Link></li>
+                        <li><Link to="/privato"><i className="fas fa-users-cog"></i><span className="labels">Gestione Privati</span></Link></li> 
+                        <li><Link to="/societa"><i class="fas fa-briefcase"></i><span className="labels">Gestione Società</span></Link></li> 
+                        <li><Link to="/"><i className="fas fa-wrench"></i><span className="labels">Gestione Unificata</span></Link></li>
                     </ul>
                 <div className="menu-label" id="sidebar-label"><i className="fas fa-chevron-circle-right"></i><span className="labels-category">SETTINGS</span><hr className="navbar-divider" id="divider" /></div>
                     <ul className="menu-list">
@@ -72,10 +73,7 @@ class MainLayout extends React.Component{
                         {/* START NAVBAR - LEFT*/}     
                         <div className="navbar-start">
                             <nav className="navbar-item" id="topbar-item">
-                                <div className="containerSearch">
-                                    <input type="search" id="search" placeholder="Cerca..." />
-                                    <button className="icon"><i className="fa fa-search"></i></button>
-                                </div>
+                                
                             </nav>
                         </div>
                         {/* END NAVBAR - LEFT*/}
@@ -130,12 +128,12 @@ class MainLayout extends React.Component{
                 <div className="hero">
                     <div className="hero-body">
                         {/* START BREADCRUMB*/}
-                        <nav className="breadcrumb has-succeeds-separator" aria-label="breadcrumbs" id="breadcrumb">
+                        <nav className="breadcrumb has-bullet-separator" aria-label="breadcrumbs" id="breadcrumb">
                             <ul>
                                 <li><Link to="/">
                                 <span className="icon is-small" id="breadcrumb-icon"><i className="fas fa-home" aria-hidden="true"></i></span>
                                     <span>Home</span></Link></li>
-                                <li className="is-active"><a href="#" aria-current="page">Gestione Corsi</a></li> 
+                                <li className="is-active"><a href="#" aria-current="page">Gestione Unificata</a></li> 
                             </ul>
                         </nav>
                         {/* END BREADCRUMB*/}

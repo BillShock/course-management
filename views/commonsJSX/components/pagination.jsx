@@ -104,7 +104,7 @@ class Pagination extends React.Component{
                 <a className="pagination-previous" onClick={this.prevPage}>Indietro</a>
                 <a className="pagination-next" onClick={this.nextPage}>Avanti</a>
                     <ul className="pagination-list">
-                    <li><a className={ this.props.data.pagination[this.props.name].current==1 ? "pagination-link is-current" : "pagination-link"} onClick={this.pageClick}>1</a></li>
+                    <li><a className={ this.props.data.pagination[this.props.name].current==1 ? "pagination-link is-current-pagination" : "pagination-link"} onClick={this.pageClick}>1</a></li>
                     {ellipsis}
                     {pagination}
                     {ellipsis}

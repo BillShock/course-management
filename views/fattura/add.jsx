@@ -218,116 +218,196 @@ class Add extends React.Component{
 
                 <Notification isVisible={this.state.formSent} type={this.state.notificationType} message={this.state.notificationMessage} />
 
-                <h1>Nuova Fattura</h1>
-
-                <div className="columns">
-                <div className="column">
-
-                <div className="field">
-                        
-                    <div className="control">
-                        <div className="select">
-                            <select value={this.state.invoice.customerType} onChange={this.handleCustomerType} required>
-                                <option value="">Tipo Cliente</option>
-                                <option value="privato">Privato</option>
-                                <option value="societa">Società</option>
-                            </select>
-                        </div>
-                    </div>
-                       
-                </div>
-
-                </div>
-                <div className="column">
-                    <div className="field">
-                        <p className="control">
-                            <input value={this.state.invoice.id_cliente} type="text" name="id_cliente" onChange={this.handleChange} className="input" placeholder="Codice Fiscale o Partita iva" required/>
-                        </p>
-                    </div>
-                </div>
-
-                </div>
-            
-                <div className="columns">
-
-
-                    <div className="column">
-                        <div className="field">
-                            <p className="control">
-                                <input value={this.state.invoice.numero} type="text" name="numero" onChange={this.handleChange} className="input" placeholder="Numero" required/>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="column">
-                        <div className="field">
-                            <p className="control">
-                                <input value={this.state.invoice.anno} type="text" name="anno" onChange={this.handleChange} className="input" placeholder="Anno" required/>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="columns is-vcentered">
-                    <div className="column">
-                        <div className="field">
-                            <label>Descrizione</label>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="field">
-                            <Cleave value={this.state.invoice.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data" className="input" placeholder="Data"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="field">
-                    <textarea name="prestazione" value={this.state.invoice.prestazione} className="textarea" onChange={this.handleChange} rows="3" placeholder="Descrizione"></textarea>
-                </div>
-
-                <div className="field">
-                    <input name="importo" type="text" onChange={this.handleTotal} className="input"  placeholder="Importo"/>
-                </div>
-
-                <div className="field">
-                    <label className="checkbox">
-                        <input name="con_cassa" type="checkbox" onChange={ this.checkBoxHandle } /> <span> 4% Cassa</span>
-                    </label>
-                </div>
-
-                <div className="field">
-                    <label className="checkbox">
-                        <input name="iva" type="checkbox" onChange={ this.checkBoxHandle } /> <span> 22% IVA</span>
-                    </label>
-                </div>
-
-                <div className="columns is-vcentered">
-                    <div className="column">
-                        <div className="field">
-                            <Cleave value={this.state.invoice.totale} className="input" placeholder="Totale" options={{numeral: true, numeralThousandsGroupStyle: 'thousand'}} readOnly/>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="field">
-                            <label className="checkbox">
-                                <input name="ritenuta" onChange={this.checkBoxHandle} type="checkbox"/> <span> Ritenuta d'acconto 20%</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="field">
-                            <label className="checkbox">
-                                <input name="bolli" onChange={this.checkBoxHandle} type="checkbox"/> <span> Bolli in Fattura 2€</span>
-                            </label>
-                        </div>
-                    </div>
+                <h1><strong>Scheda di Inserimento</strong></h1>
+                <div id="margin-fattura">
+                <div className="title-card-add">
+                    <span className="label-card-add">Nuova Fattura</span>
                 </div>
                 
+                <div className="box">
 
-                <button type="submit" className={"button is-success " + this.state.btnClassState}  disabled={this.state.btnState}>{this.state.formActionText}</button>
+                <div className="field is-horizontal">
+                    <div className="field-label">
+                        <label className="label">Seleziona il tipo di cliente</label>
+                        <p className="help is-danger">Prima di procedere è necessario selezionare la tipologia cliente</p>
+                    </div>
+                    <div className="field-body">
+                        <div className="field is-narrow">
+                            <div className="tabs is-toggle" value={this.state.invoice.customerType} onChange={this.handleCustomerType} required>
+                                <ul>
+                                    <li className="is-active-tab">
+                                        <a>
+                                            <span class="icon is-small"><i class="fas fa-user" aria-hidden="true"></i></span>
+                                            <span>Privati</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="icon is-small"><i class="fas fa-briefcase" aria-hidden="true"></i></span>
+                                            <span>Società</span>
+                                        </a>                                     
+                                    </li>                                  
+                                </ul>                               
+                            </div>                          
+                        </div>
+                    </div>
+                    </div>
+
+<div className="field is-horizontal margin-add">
+  <div className="field-label is-normal">
+      <label className="label">Intestazione e numero Fattura</label>
+      <p className="help is-danger">Tutti i campi sono obbligatori</p>
+  </div>
+  <div className="field-body">
+      <div className="field">
+      <p class="control is-expanded">
+          <div className="field">
+              <label className="label label-add">Inserisci il Codice Fiscale o Partita iva</label>
+              <input value={this.state.invoice.id_cliente} type="text" name="id_cliente" onChange={this.handleChange} className="input" placeholder="Scrivi qui" required/>
+          </div>
+      </p>
+      </div>
+
+      <div className="field">
+      <p class="control is-expanded">
+          <div className="field">
+              <label className="label label-add">Numero fattura</label>
+              <input value={this.state.invoice.numero} type="text" name="numero" onChange={this.handleChange} className="input" pattern="[0-9]+" title="Inserire solo numeri" placeholder="Scrivi qui" required/>
+          </div>
+      </p>
+      </div>
+  </div>
+</div>
+
+<div className="field is-horizontal margin-add">
+<div className="field-label is-normal">
+  <label className="label">Date di Fatturazione</label>
+  <p className="help is-danger">Tutti i campi sono obbligatori</p>
+</div>
+<div className="field-body">
+  <div className="field">
+  <p class="control is-expanded">
+      <div className="field">
+          <label className="label label-add">Anno fattura</label>
+          <input value={this.state.invoice.anno} type="text" name="anno" onChange={this.handleChange} className="input" placeholder="Scrivi qui" required/>
+      </div>
+  </p>
+  </div>
+
+  <div className="field">
+  <p class="control is-expanded">
+  <div className="field">
+      <label className="label label-add">Data emissione Fattura</label>
+      <Cleave value={this.state.invoice.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data" className="input" placeholder="Scrivi qui" required/>
+      </div>
+  </p>
+  </div>
+</div>
+</div>
+
+<div className="field is-horizontal margin-add">
+<div className="field-label is-normal">
+<label className="label">Importi da Fatturare</label>
+  <p className="help is-danger">Tutti i campi sono obbligatori</p>
+</div>
+<div className="field-body">
+  <div className="field">
+      <p class="control is-expanded">
+          <div className="field">
+              <label className="label label-add">Inserisci Importo</label>
+              <p className="control">
+                  {/*<Cleave value={this.state.invoice.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data_inizio" className="input" placeholder="Scrivi"/>*/}
+                  <input name="importo" type="text" onChange={this.handleTotal} className="input" pattern="[0-9]+" title="Inserire solo numeri"  placeholder="Scrivi qui"/>
+              </p>
+          </div>
+      </p>
+  </div>
+
+        <div className="field">
+            <p class="control is-expanded">
+            <div className="field">
+                <label className="label label-add">Applica se necessario trattenute o importi al totale </label>
+                <p className="control">
+          {/*<Cleave value={this.state.invoice.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data_fine" className="input" placeholder="Scrivi"/>*/}
+                    <div className="field ">
+                        <label className="checkbox">
+                            <input name="con_cassa" type="checkbox" onChange={ this.checkBoxHandle } /> <span> 4% Cassa</span>
+                        </label>
+                    </div>
+                    <div className="field">
+                            <label className="checkbox">
+                            <input name="iva" type="checkbox" onChange={ this.checkBoxHandle } /> <span> 22% IVA</span>
+                        </label>
+                    </div>
+
+                    <div className="field">
+                        <label className="checkbox">
+                            <span className="checkmark"><input name="ritenuta" onChange={this.checkBoxHandle} type="checkbox"/></span> <span> Ritenuta d'acconto 20%</span>
+                        </label>
+                    </div>
+
+                    <div className="field">
+                        <label className="checkbox">
+                            <input name="bolli" onChange={this.checkBoxHandle} type="checkbox"/> <span> Bolli in Fattura 2€</span>
+                        </label>
+                    </div>
+                 </p>
+            </div>
+            </p>
+            </div>
+        </div>
+    </div>
+
+            <div className="field is-horizontal margin-add">
+            <div className="field-label is-normal">
+            <label className="label">Riepilogo</label>
+                <p className="help is-danger">Il campo seguente non è modificabile</p>
+            </div>
+            <div className="field-body">
+                <div className="field">
+                    <p class="control is-expanded">
+                        <div className="field">
+                            <label className="label label-add">Importo totale aggiornato</label>
+                            <p className="control">
+                                {/*<Cleave value={this.state.invoice.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data_inizio" className="input" placeholder="Scrivi"/>*/}
+                                <Cleave value={this.state.invoice.totale} className="input" placeholder="Totale" options={{numeral: true, numeralThousandsGroupStyle: 'thousand'}} readOnly/>
+                            </p>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            </div>
+
+
+            <div className="field is-horizontal margin-add">
+                <div className="field-label is-normal">
+                    <label className="label">Altro</label>
+                    <p className="help is-danger">Il campo note è facoltativo</p>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <div className="field">
+                                <label className="label label-add">Aggiungi Note</label>
+                                <textarea name="prestazione" value={this.state.invoice.prestazione} className="textarea" onChange={this.handleChange} rows="3" placeholder="Note"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
                
+</div>
+    <footer className="footer-add">
+        <nav className="navbar">
+            <div className="navbar-end">
+                <nav className="navbar-item">
+                    <button type="submit" className={"button is-submit-fattura " + this.state.btnClassState}  disabled={this.state.btnState}>{this.state.formActionText}</button>
+                </nav>
+            </div>
+        </nav>
+    </footer> 
+                
             </form>
 
             )}

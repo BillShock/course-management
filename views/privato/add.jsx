@@ -189,68 +189,147 @@ class Add extends React.Component{
                                 
                                 
                         }}>
-                        <h1>Inserisci Privato</h1>
+                        <h1><strong>Scheda di Inserimento</strong></h1>
+                        <div id="margin-privato">
+                        <div className="title-card-add">
+                            <span className="label-card-add"> Nuovo Privato</span>
+                        </div>
+
+            <div className="box">
+                    <div className="field is-horizontal margin-add">
+                        <div className="field-label is-normal">
+                            <label className="label">Dati anagrafici</label>
+                            <p className="help is-danger">Tutti i campi sono obbligatori</p>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                            <p className="control is-expanded">
+                                <div className="field">
+                                    <label className="label label-add">Nome</label>
+                                    <input type="text" name="nome" onChange={this.handleChange} className="input" placeholder="Scrivi qui" required/>
+                                </div>
+                            </p>
+                            </div>
+
+                            <div className="field">
+                            <p className="control is-expanded">
+                                <div className="field">
+                                    <label className="label label-add">Cognome</label>
+                                    <input type="text" name="cognome" onChange={this.handleChange} className="input" placeholder="Scrivi qui" required/>
+                                </div>
+                            </p>
+                            </div>
+
+                            <div className="field">
+                            <p className="control is-expanded">
+                                <div className="field">
+                                    <label className="label label-add">Codice Fiscale</label>
+                                    <input value={this.state.privato.cf} onChange={this.handleChange}  type="text" name="cf" className="input" maxLength="16" placeholder="Scrivi qui" required/>
+                                </div>
+                            </p>
+                            </div>
+
+                            <div className="field">
+                            <p className="control is-expanded">
+                                <div className="field">
+                                    <label className="label label-add">Data di Nascita</label>
+                                    <Cleave value={this.state.privato.data_nascita} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data_nascita" className="input" placeholder="Scrivi qui"/>
+                                </div>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="field is-horizontal margin-add">
+                        <div className="field-label is-normal">
+                            <label className="label">Indirizzo Cliente</label>
+                            <p className="help is-danger">Tutti i campi sono obbligatori</p>
+                        </div>
+                    <div className="field-body">
                         <div className="field">
-                            <input value={this.state.privato.cf} onChange={this.handleChange}  type="text" name="cf" className="input" maxLength="16" placeholder="Codice Fiscale" required/>
-                        </div>
-        
-                        <div className="field is-horizontal">
-                            <div className="field-body">
-                                <div className="field">
-                                    <p className="control is-expanded">
-                                        <input type="text" name="nome" onChange={this.handleChange} className="input" placeholder="Nome"/>
-                                    </p>
-                                </div>
-                                <div className="field">
-                                    <p className="control s-expanded">
-                                        <input type="text" name="cognome" onChange={this.handleChange} className="input" placeholder="Cognome"/>
-                                    </p>
-                                </div>
+                        <p className="control is-expanded">
+                            <div className="field">
+                                <label className="label label-add">Indirizzo</label>
+                                <input type="text" name="indirizzo" onChange={this.handleChange} className="input" placeholder="Scrivi qui" required/>
                             </div>
+                        </p>
                         </div>
-        
-        
-                        <div className="field is-horizontal">
-                            <div className="field-body">
-                                <div className="field">
-                                    <p className="control is-expanded">
-                                        <input type="text" name="indirizzo" onChange={this.handleChange} className="input" placeholder="Indirizzo"/>
-                                    </p>
-                                </div>
-                                <div className="field">
-                                    <p className="control s-expanded">
-                                        <input type="text" name="civico" onChange={this.handleChange} className="input" placeholder="Civico"/>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div className="field is-horizontal">
-                            <div className="field-body">
-                                <div className="field">
-                                    <input type="text" onChange={this.handleChange} name="cap" className="input" placeholder="Cap"/>
-                                </div>
-                                <div className="field">
-                                    <Cleave value={this.state.privato.data_nascita} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data_nascita" className="input" placeholder="Data di Nascita gg/mm/aaaa"/>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div className="field is-horizontal">
-                            <div className="field-body">
-                                <div className="field">
-                                    <input type="text" onChange={this.handleChange} name="telefono" className="input" placeholder="Telefono"/>
-                                </div>
-                                <div className="field">
-                                    <input type="text" onChange={this.handleChange} name="email" className="input" placeholder="Email"/>
-                                </div>
-                            </div>
-                        </div>
-        
+
                         <div className="field">
-                            <textarea className="textarea" name="note" rows="3" placeholder="Note"></textarea>
+                        <p className="control is-expanded">
+                        <div className="field">
+                            <label className="label label-add">Civico</label>
+                            <input type="text" name="civico" onChange={this.handleChange} className="input" placeholder="Scrivi qui" required/>
+                            </div>
+                        </p>
                         </div>
-                        <button type="submit" className={"button is-success " + this.state.btnState} disabled={this.state.formSent}>{this.state.formActionText}</button>
+
+                        <div className="field">
+                        <p className="control is-expanded">
+                        <div className="field">
+                            <label className="label label-add">CAP</label>
+                            <input type="text" onChange={this.handleChange} name="cap" className="input" pattern="[0-9]+" placeholder="Scrivi qui" required/>
+                            </div>
+                        </p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div className="field is-horizontal margin-add">
+                        <div className="field-label is-normal">
+                            <label className="label">Recapiti</label>
+                            <label className="help is-danger">Tutti i campi sono obbligatori</label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <p className="control is-expanded">
+                                    <div className="field">
+                                        <label className="label label-add">Telefono</label>
+                                        <input type="text" onChange={this.handleChange} name="telefono" className="input" pattern="[0-9]+" placeholder="Scrivi qui" required/>
+                                    </div>
+                                </p>
+                            </div>
+
+                            <div className="field">
+                                <p className="control is-expanded">
+                                <div className="field">
+                                    <label className="label label-add">Email</label>
+                                    <input type="text" onChange={this.handleChange} name="email" className="input" placeholder="Scrivi qui" required/>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className="field is-horizontal margin-add">
+                        <div className="field-label is-normal">
+                            <label className="label">Altro</label>
+                            <label className="help is-danger">Il campo note è facoltativo</label>
+                        </div>
+                        <div className="field-body">
+                        <div className="field">
+                        <p className="control is-expanded">
+                        <div className="field ">
+                                <p className="title is-6 label-add">Aggiungi Note</p>
+                                    <textarea className="textarea" name="note" rows="3" placeholder="Note"></textarea>
+                                </div>
+                        </p>
+                        </div>
+                        </div>
+                    </div>
+                        
+            </div>
+            </div>
+            <footer className="footer-add">
+                            <nav className="navbar">
+                                <div className="navbar-end">
+                                    <nav className="navbar-item">
+                                    <button type="submit" className={"button is-submit-privato " + this.state.btnState} disabled={this.state.formSent}>{this.state.formActionText}</button>
+                                    </nav>
+                                </div>
+                            </nav>
+                        </footer> 
                     </form>
                     </div>
                 )}

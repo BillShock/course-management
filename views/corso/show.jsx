@@ -27,73 +27,128 @@ class Show extends React.Component{
             return(
                 
             <div>
-                 <h1>Corso</h1>
-                <nav className="level">
-                    <div className="level-left">
-                       
-                    </div>
-                        <div className="level-right">
-                            <p className="level-item"><button className="button is-info" onClick={()=>{this.setState({modalState:'is-active'})}}>Aggiungi Persona</button></p>
-                        </div>
-                </nav>
-
-                <ModalSearch corso={data.corso} query={GET_PRIVATO_ALL} id={this.props.match.params.id} isActive={this.state.modalState} addAction={this.addSubscriber} closeAction={()=>{this.setState({modalState:''})}} />
-                
                 <div>
-                     <h2> </h2>
+                <h1><strong>Corsi</strong></h1>
 
-                   <div className="columns">
-                            <div className="column">
-                                <div><strong>Codice Corso: </strong>{data.corso.codice}</div>
-                            </div>
-                            <div className="column">
-                                <div><strong>Nome Corso : </strong>{data.corso.nome}</div>
-                            </div>
-                            <div className="column">
-                                <div><strong>Ore: </strong> {data.corso.ore}</div>
-                            </div>
-                    </div>
+                <div id="margin-corsi">
+                        <div className="title-card-add">
+                        <span className="label-card-add">SCHEDA TECNICA - CORSO {data.corso.nome}</span>
+                        </div>
 
-                    <div className="columns">
+                        <div className="box">
+                        <nav className="level">
+                            <div className="level-left">
+                                <p className="subtitle is-5">
+                                <i className="far fa-dot-circle"></i><strong className="column-show-title">Dati del Corso</strong>
+                                </p>
+                            </div>
+                        </nav>
+                        <div className="columns column-show">
                             <div className="column">
-                                <div><strong>Data Inizio: </strong>{data.corso.data_inizio}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Codice Corso</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.codice}</p>
+                            </div>
                             </div>
                             <div className="column">
-                                <div><strong>Data Fine: </strong>{data.corso.data_fine}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Nome Corso</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.nome}</p>
+                            </div>
                             </div>
                             <div className="column">
-                                <div><strong>Inizio Stage: </strong> {data.corso.inizio_stage}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Aula</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.aula}</p>
                             </div>
-                    </div>
+                        </div>
+                        </div>
 
-                    <div className="columns">
+                        <nav className="level">
+                                <div className="level-left">         
+                                    <p className="subtitle is-5">
+                                    <i className="far fa-dot-circle"></i><strong className="column-show-title">Orari ed ore Corso</strong>
+                                    </p>
+                                </div>
+                            </nav>
+                        <div className="columns column-show">
                             <div className="column">
-                                <div><strong>Data Termine 10%: </strong>{data.corso.data_termine10}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Orario inizio Corso</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.ora_inizio}</p>
+                            </div>
                             </div>
                             <div className="column">
-                                <div><strong>Data Esame: </strong>{data.corso.data_esame}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Orario fine Corso</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.ora_fine}</p>
+                            </div>
                             </div>
                             <div className="column">
-                                <div><strong>Aula: </strong> {data.corso.aula}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Ore totali</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.ore}</p>
                             </div>
-                    </div>
+                        </div>
+                        </div>
 
-                    <div className="columns">
+                        <nav className="level">
+                                <div className="level-left">
+                                    <p className="subtitle is-5">
+                                    <i className="far fa-dot-circle"></i><strong className="column-show-title">Date del Corso</strong>
+                                    </p>
+                                </div>
+                            </nav>
+                        <div className="columns column-show">
                             <div className="column">
-                                <div><strong>Ora Inizio: </strong>{data.corso.ora_inizio}</div>
+                                <div className="card-content">
+                                    <p className="title is-6 label-column-show"> Data Inizio Corso</p>
+                                    <p className="subtitle is-6">&#8594;{data.corso.data_inizio}</p>
+                                </div>
                             </div>
                             <div className="column">
-                                <div><strong>Ora Fine: </strong>{data.corso.ora_fine}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Data Fine Corso</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.data_fine}</p>
+                            </div>
                             </div>
                             <div className="column">
-                                <div><strong>Note: </strong> {data.corso.note}</div>
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Inizio Stage</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.inizio_stage}</p>
                             </div>
-                    </div>
-                </div>
+                            </div>
+                            <div className="column">
+                            <div className="card-content">
+                                <p className="title is-6 label-column-show"> Data termine 10%</p>
+                                <p className="subtitle is-6">&#8594;{data.corso.data_termine10}</p>
+                            </div>
+                            </div>
+                        </div>
 
+                        <nav className="level">
+                                <div className="level-left">
+                                    <p className="subtitle is-5">
+                                    <i className="far fa-dot-circle"></i><strong className="column-show-title">Altro</strong>
+                                    </p>
+                                </div>
+                            </nav>
+                        <div className="columns column-show">
+                            <div className="column">
+                                <div className="card-content">
+                                    <p className="title is-6 label-column-show"> Note</p>
+                                    <p className="subtitle is-6">&#8594;{data.corso.note}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+
+                        </div>
 
                 <AvatarList rows={data.corso} deleteBtn={this.deleteSubscriber} />
              
+            </div> 
             </div>
             );
             }}

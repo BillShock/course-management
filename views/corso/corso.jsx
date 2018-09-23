@@ -88,44 +88,58 @@ class Corso extends React.Component{
         }
         */
         return(
-            <div>
-                <h1>Corsi</h1>
-
                 <div>
-                    <nav className="level">
-                    <div className="level-left">
-                        <div className="level-item">
-                        <p className="subtitle is-5">
-                            <strong>{this.state.corsi.length}</strong> corsi
-                        </p>
-                        </div>
-                        <div className="level-item">
-                        <div className="field has-addons">
-                                <p className="control">
-                                    <input className="input" type="text" onChange={this.handleInputChange} placeholder="Ricerca"/>
-                                </p>
-                                <p className="control">
-                                    <input className="input" type="text" onChange={this.handleInputChange} placeholder="Ricerca"/>
-                                </p>
-                                <p className="control">
-                                    <button className="button">
-                                        Search
-                                    </button>
-                                </p>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <h1><strong>Corsi</strong></h1>
 
-                        <div className="level-right">
-                            <p className="level-item"><strong>All</strong></p>
-                            <p className="level-item"><a>Published</a></p>
-                            <p className="level-item"><a>Drafts</a></p>
-                            <p className="level-item"><a>Deleted</a></p>
-                            <p className="level-item"><Link className="button is-success" to={"/corso/add"}>Add Course</Link></p>
-                        </div>
-                    </nav>
+<div id="margin-corsi"> 
+    <nav className="level">        
+        <div className="level-left">
+            <div className="level-item">
+            <p className="subtitle is-5">
+              Numero di Corsi <strong>{this.state.corsi.length}</strong> 
+            </p>
+            </div>
+        </div>
+
+        <div className="level-right">
+                <p className="level-item"><strong></strong></p>
+                <p className="level-item"><a></a></p>
+                <p className="level-item"><a></a></p>
+                <p className="level-item"><a></a></p>
+                <p className="level-item"><Link className="button is-add-course" to={"/corso/add"}>Aggiungi Corso</Link></p>
+            </div> 
+    </nav>
+
+        <div className="columns">
+            <div className="column w3-container">
+                <div className="box w3-animate-left">
+                    <p className="title is-6">Ricerca tramite ID corso</p>
+                    <div className="field has-addons" id="padding-byTop">
+                        <p className="control">      
+                            <input className="input" type="text" onChange={this.handleInputChange} placeholder="Ricerca"/>
+                        </p>
+                        <p className="control">
+                            <button className="button"><i className="fas fa-search"></i></button>
+                        </p>
+                    </div>
                 </div>
+            </div>
+
+            <div className="column">
+                <div className="box">
+                    <p className="title is-6">Ricerca tramite Nome corso</p>
+                    <div className="field has-addons" id="padding-byTop">
+                        <p className="control">      
+                            <input className="input" type="text" onChange={this.handleInputChange} placeholder="Ricerca"/>
+                        </p>
+                        <p className="control">
+                            <button className="button"><i className="fas fa-search"></i></button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>    
+</div>
                 
                 <Table name="corsi" link="/corso" paginationQuery={GET_PAGINATION} throws={["ID","Codice","Nome Corso","Ore","Data Inizio","Data Fine",""]} showBtn={{lbl:"Show",tags:["id"],link:"/show"}} editBtn={{lbl:"Edit",tag:"id",link:"/edit"}} deleteBtn={{lbl:"Delete",tags:["id"],action:this.deleteCorso,deleteMutation:DELETE_CORSO}}  lblRows={['id','codice','nome','ore','data_inizio','data_fine']} rows={this.state.corsi} />
             </div>

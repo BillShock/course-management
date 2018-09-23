@@ -150,66 +150,168 @@ class Add extends React.Component{
             <div>
             <Notification isVisible={this.state.formSent} type={this.state.notificationType} message={this.state.notificationMessage} />
             <form onSubmit={this.state.formAction}>
-                <h1>Inserisci Corso</h1>
+
+            <h1><strong>Scheda di Inserimento</strong></h1>
+            <div id="margin-corsi">
+            <div className="title-card-add">
+                <span className="label-card-add">Nuovo Corso</span>
+            </div>
+            <div className="box">
+
+                <div className="field is-horizontal margin-add">
+                    <div className="field-label is-normal">
+                        <label className="label">Dati del Corso</label>
+                        <label className="help is-danger">Tutti i campi sono obbligatori</label>
+                    </div>
+                    <div className="field-body">
+                        <div className="field">
+                        <div className="is-expanded">
+                            <div className="control field">
+                                <label className="label label-add">Codice Corso</label>
+                                <input value={this.state.course.codice} onChange={this.handleChange}  type="text" name="codice" className="input"  placeholder="Scrivi qui" required/>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div className="field">
+                        <div className="is-expanded">
+                            <div className="control field">
+                                <label className="label label-add">Nome Corso</label>
+                                <input value={this.state.course.nome} onChange={this.handleChange} type="text" name="nome" className="input" placeholder="Scrivi qui" required/>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div className="field">
+                        <div className="is-expanded">
+                            <div className="control field">
+                                <label className="label label-add">Aula</label>
+                                <input value={this.state.course.aula} type="text" name="aula" onChange={this.handleChange} className="input" placeholder="Scrivi qui" required/>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="field is-horizontal margin-add">
+                <div className="field-label is-normal">
+                    <label className="label">Orari ed ore del Corso</label>
+                    <label className="help is-danger">Tutti i campi sono obbligatori</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                    <div className="is-expanded">
+                        <div className="control field">
+                            <label className="label label-add">Orario Inizio Corso</label>
+                            <input value={this.state.course.ora_inizio} type="text" onChange={this.handleChange} name="ora_inizio" className="input" placeholder="Scrivi qui" pattern="[0-9]+" required/>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div className="field">
+                    <div className="is-expanded">
+                    <div className="control field">
+                        <label className="label label-add">Orario Fine Corso</label>
+                            <input value={this.state.course.ora_fine} type="text" onChange={this.handleChange} name="ora_fine" className="input" placeholder="Scrivi qui" pattern="[0-9]+" required/>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div className="field">
+                    <div className="is-expanded">
+                    <div className="field">
+                        <div className="control is-expanded">
+                            <label className="label label-add">Ore Totali</label>
+                            <input value={this.state.course.ore} type="text" name="ore" onChange={this.handleChange} min="1" className="input" placeholder="Scrivi qui" pattern="[0-9]+" required/>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            <div className="field is-horizontal margin-add">
+                <div className="field-label is-normal">
+                <label className="label">Date del Corso</label>
+                    <label className="help is-danger">Tutti i campi sono obbligatori</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="is-expanded">
+                            <div className="field">
+                                <label className="label label-add">Data Inizio Corso</label>
+                                <div className="control">
+                                    {/*<Cleave value={this.state.invoice.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data_inizio" className="input" placeholder="Scrivi"/>*/}
+                                    <input value={moment(this.state.course.data_inizio,'YYYY-MM-DD').format('YYYY-MM-DD')} type="date" onChange={this.handleChange} name="data_inizio" className="input" placeholder="Scrivi qui" required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 <div className="field">
-                    <input value={this.state.course.codice} onChange={this.handleChange}  type="text" name="codice" className="input"  placeholder="Codice Corso" required/>
+                <div className="is-expanded">
+                    <div className="field">
+                        <label className="label label-add">Data Fine Corso</label>
+                        <div className="control">
+                            {/*<Cleave value={this.state.invoice.data.toString()} options={{date: true, datePattern: ['d', 'm', 'Y']}} onChange={this.handleChange} name="data_fine" className="input" placeholder="Scrivi"/>*/}
+                            <input value={moment(this.state.course.data_fine,'YYYY-MM-DD').format('YYYY-MM-DD')} type="date" onChange={this.handleChange} name="data_fine" className="input" placeholder="Scrivi qui" required/>
+                        </div>
+                    </div>
                 </div>
+                </div>
+
                 <div className="field">
-                    <input value={this.state.course.nome} onChange={this.handleChange} type="text" name="nome" className="input" placeholder="Nome Corso"/>
-                </div>
-
-                <div className="field is-horizontal">
-                    <div className="field-body">
-                        <div className="field">
-                            <p className="control is-expanded">
-                                <input value={this.state.course.ore} type="number" name="ore" onChange={this.handleChange} min="1" className="input" placeholder="Ore"/>
-                            </p>
-                        </div>
-                        <div className="field">
-                            <p className="control s-expanded">
-                                <input value={this.state.course.aula} type="text" name="aula" onChange={this.handleChange} className="input" placeholder="Aula"/>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="field is-horizontal">
-                    <div className="field-body">
-                        <div className="field">
-                            <input value={moment(this.state.course.data_inizio,'YYYY-MM-DD').format('YYYY-MM-DD')} type="date" onChange={this.handleChange} name="data_inizio" className="input" placeholder="Data Inizio"/>
-                        </div>
-                        <div className="field">
-                            <input value={moment(this.state.course.data_fine,'YYYY-MM-DD').format('YYYY-MM-DD')} type="date" onChange={this.handleChange} name="data_fine" className="input" placeholder="Data Fine"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="field is-horizontal">
-                    <div className="field-body">
-                        <div className="field">
-                            <input value={moment(this.state.course.inizio_stage,'YYYY-MM-DD').format('YYYY-MM-DD')} type="date" onChange={this.handleChange} name="inizio_stage" className="input" placeholder="Inizio Stage"/>
-                        </div>
-                        <div className="field">
-                            <input value={moment(this.state.course.data_termine10,'YYYY-MM-DD').format('YYYY-MM-DD')} type="date" onChange={this.handleChange} name="data_termine10" className="input" placeholder="Data Termine 10%"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="field is-horizontal">
-                    <div className="field-body">
-                        <div className="field">
-                            <input value={this.state.course.ora_inizio} type="number" onChange={this.handleChange} name="ora_inizio" className="input" placeholder="Ora inizio"/>
-                        </div>
-                        <div className="field">
-                            <input value={this.state.course.ora_fine} type="number" onChange={this.handleChange} name="ora_fine" className="input" placeholder="Ora fine"/>
+                    <div className="is-expanded">
+                        <div className="field-body">
+                            <div className="field">
+                                <label className="label label-add">Inizio Stage</label>
+                                <input value={moment(this.state.course.inizio_stage,'YYYY-MM-DD').format('YYYY-MM-DD')} type="date" onChange={this.handleChange} name="inizio_stage" className="input" placeholder="Scrivi qui" required/>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="field">
-                    <textarea className="textarea" rows="3" placeholder="Note"></textarea>
+                    <div className="field">
+                        <div className="field-body control is-expanded">
+                            <div className="field">
+                                <label className="label label-add">Data Termine 10%</label>
+                                <input value={moment(this.state.course.data_termine10,'YYYY-MM-DD').format('YYYY-MM-DD')} type="date" onChange={this.handleChange} name="data_termine10" className="input" placeholder="Scrivi qui" required/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" className={"button is-success " + this.state.btnState}  disabled={this.state.formSent}>{this.state.formActionText}</button>
+            </div>
+        </div>
+
+
+        <div className="field is-horizontal margin-add">
+        <div className="field-label is-normal">
+            <label className="label">Altro</label>
+            <label className="help is-danger">Il campo note è facoltativo</label>
+        </div>
+        <div className="field-body">
+            <div className="field">
+            <div className="control">
+            <div className="field">
+                <label className="label label-add">Aggiungi Note</label>
+                    <textarea className="textarea" rows="3" placeholder="Aggiungi qui le note"></textarea>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    <footer className="footer-add">
+        <nav className="navbar">
+                <div className="navbar-end">
+                    <nav className="navbar-item">
+                    <button type="submit" className={"button is-submit-course " + this.state.btnState}  disabled={this.state.formSent}>{this.state.formActionText}</button>
+                    </nav>
+                </div>
+            </nav>
+    </footer> 
             </form>
             </div>
         )
